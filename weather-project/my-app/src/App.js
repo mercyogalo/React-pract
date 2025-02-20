@@ -39,11 +39,21 @@ function displayTemperature(response){
 
 
   let form=(
-    <form className="form" onSubmit={handleForm}>
-    <input type="text" placeholder="Enter a city" onChange={handleCity}/>
-    <input type="submit"  value="Search" className="submit-btn"/>
-  </form>
+<header>
+<form className="form" onSubmit={handleForm}>
+  <input
+    type="text"
+    placeholder="Enter a city.."
+    className="search-input"
+    onChange={handleCity}
+  />
+  <input type="submit" value="Search" className="search-button" />
+</form>
+</header>
+
   )
+
+
  if (loader) {
   return (
     <div className="container">
@@ -60,7 +70,7 @@ function displayTemperature(response){
             <li>Wind Speed: {wind} m/s</li>
             <li>Description: {description}</li>
           
-          </ul>
+        </ul>
           
    </div>
 
