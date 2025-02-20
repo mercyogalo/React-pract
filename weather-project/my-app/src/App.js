@@ -46,24 +46,36 @@ function displayTemperature(response){
   )
  if (loader) {
   return (
-    <div className="App">
+    <div className="container">
+    <div className="row">
+    <div className="col-sm-12">
     {form}
-   
-    <ul>
+    </div>
+
+
+   <div className="col-sm-6">
+   <ul>
             <li>Temperature:{temperature}°C</li>
             <li>Humidity: {humidity}%</li>
             <li>Wind Speed: {wind} m/s</li>
             <li>Description: {description}</li>
-            {image && (
-              <li>
-                <img
+          
+          </ul>
+          
+   </div>
+
+   <div className="col-sm-6">
+   {image && (<img
                   src={`http://openweathermap.org/img/wn/${image}@2x.png`}
                   alt="Weather icon"
                 />
-              </li>
-            )}
-          </ul>
+              )}
+</div>
+
+  
    
+        
+          </div>
     </div>
   );
  }
