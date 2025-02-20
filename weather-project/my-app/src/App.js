@@ -69,9 +69,16 @@ function displayTemperature(response){
  }
  else{
   return (
-    <div className="App">
+    <div className="container">
+       <div className="row">
+       <div className="col-sm-12">
+
     {form}
+
     </div>
+     </div>
+     </div>
+
   );
 
  }
