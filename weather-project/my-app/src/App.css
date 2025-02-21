@@ -23,7 +23,7 @@
 .form input{
   padding:10px;
 }
-.submit-btn{
+.search-button{
   padding:10px;
   background-color: #61dafb;
   color:white;
@@ -34,6 +34,6 @@
   border: none;
   font-size: 15px;
 }
-.submit-btn:hover{
+.search-button:hover{
   cursor: pointer;
 }
