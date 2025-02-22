@@ -56,7 +56,7 @@ function displayTemperature(response){
 
  if (loader) {
   return (
-    <div className="container weather-app-section">
+    <div className="weather-app-section">
     <div className="row ">
    
 
@@ -93,7 +93,7 @@ function displayTemperature(response){
  }
  else{
   return (
-    <div className="container weather-app-section">
+    <div className=" weather-app-section">
        <div className="row ">
 
        <div className="col-sm-12">
