@@ -1,7 +1,8 @@
 
 :root{
   --secondary-color:#ffffff;
-  --primary-color:#0D110F;
+  --primary-color:#0C121E;
+  --accent-color:#202C3C;
 }
 
 .weather-app-section{
@@ -22,7 +23,7 @@
 
 .weather-app-section .form{
 text-align: center;
-  margin-top: 10px;
+  margin-top: 40px;
   margin-bottom: 10px;
 }
 
