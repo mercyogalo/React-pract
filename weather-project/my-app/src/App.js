@@ -44,7 +44,7 @@ function displayTemperature(response){
   <input
     type="text"
     placeholder="Enter a city.."
-    className="search-input"
+    className="search-input "
     onChange={handleCity}
   />
   <input type="submit" value="Search" className="search-button" />
@@ -56,8 +56,8 @@ function displayTemperature(response){
 
  if (loader) {
   return (
-    <div className="container">
-    <div className="row weather-app-section">
+    <div className="container weather-app-section">
+    <div className="row ">
    
 
     <div className="col-sm-12">
@@ -93,13 +93,13 @@ function displayTemperature(response){
  }
  else{
   return (
-    <div className="container">
-       <div className="row">
+    <div className="container weather-app-section">
+       <div className="row ">
+
        <div className="col-sm-12">
-
     {form}
-
     </div>
+
      </div>
      </div>
 
