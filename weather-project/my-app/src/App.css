@@ -33,14 +33,18 @@ text-align: center;
   padding-bottom: 8px;
 }
 .form .search-button{
-  background-color: #61dafb;
-  color:white;
+  background-color: var(--primary-color);
+  color:var(--secondary-color);
   margin-left: 4px;
   border-radius: 25px;
   padding-right: 60px;
   padding-left: 60px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   border: none;
 }
 .form .search-button:hover{
   cursor: pointer;
+  background-color: var(--secondary-color);
+  color:var(--primary-color);
 }
