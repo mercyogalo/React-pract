@@ -46,6 +46,4 @@ text-align: center;
 }
 .form .search-button:hover{
   cursor: pointer;
-  background-color: var(--secondary-color);
-  color:var(--primary-color);
 }

@@ -11,6 +11,7 @@ let [temperature, setTemperature] = useState("");
   let [description, setDescription] = useState("");
   let [wind, setWind] = useState("");
   let [image, setImage] = useState("");
+  let [date, setDate] = useState("")
 
   function handleForm(e){
     e.preventDefault();
@@ -24,6 +25,7 @@ function displayTemperature(response){
   Math.round(setWind(response.data.wind.speed));
   setDescription(response.data.weather[0].description);
   setImage(response.data.weather[0].icon);
+  setDate(new Date(response.data.coord.dt*1000));
   Math.round(setTemperature(response.data.main.temp));
   return  setLoader(true);
 }
@@ -71,6 +73,7 @@ function displayTemperature(response){
             <li>Humidity: {humidity}%</li>
             <li>Wind Speed: {wind} m/s</li>
             <li>Description: {description}</li>
+            <li>Date: {setDate}</li>
           
         </ul>
           
