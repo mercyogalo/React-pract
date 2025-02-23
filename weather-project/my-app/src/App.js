@@ -25,7 +25,7 @@ function displayTemperature(response){
   Math.round(setWind(response.data.wind.speed));
   setDescription(response.data.weather[0].description);
   setImage(response.data.weather[0].icon);
-  setDate(new Date(response.data.coord.dt*1000));
+  setDate(new Date(response.data.dt*1000));
   Math.round(setTemperature(response.data.main.temp));
   return  setLoader(true);
 }
@@ -69,25 +69,29 @@ function displayTemperature(response){
 
    <div className="col-sm-6">
    <ul>
-            <li>Temperature:{temperature}°C</li>
+          
             <li>Humidity: {humidity}%</li>
             <li>Wind Speed: {wind} m/s</li>
             <li>Description: {description}</li>
             <li>Date: {setDate}</li>
           
         </ul>
-          
-   </div>
 
-   <div className="col-sm-6">
-   {image && (<img
+        {image && (<img
                   src={`http://openweathermap.org/img/wn/${image}@2x.png`}
                   alt="Weather icon"
                 />
               )}
+          
+   </div>
+
+   <div className="col-sm-4 temperature-section">
+   <p>{temperature}<sup>°</sup></p>
 </div>
 
-  
+  <div className="col-sm-10 forecast-section">
+<h2>Forecast</h2>
+  </div>
    
     </div>
 </div>
