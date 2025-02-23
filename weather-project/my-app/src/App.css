@@ -18,9 +18,10 @@
   top: 0;
   left: 0;
 }
+
 .weather-app-section .temperature-section{
   background-color: var(--secondary-color);
-  opacity: 0.6;
+  opacity: 0.2;
   color: #0C121E;
   border-radius: 10px;
   text-align: center;

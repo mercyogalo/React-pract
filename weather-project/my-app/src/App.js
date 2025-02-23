@@ -67,31 +67,34 @@ function displayTemperature(response){
     </div>
 
 
-   <div className="col-sm-6">
+   <div className="col-sm-5">
    <ul>
-          
             <li>Humidity: {humidity}%</li>
             <li>Wind Speed: {wind} m/s</li>
             <li>Description: {description}</li>
             <li>Date: {setDate}</li>
           
         </ul>
-
+   
         {image && (<img
                   src={`http://openweathermap.org/img/wn/${image}@2x.png`}
                   alt="Weather icon"
                 />
               )}
-          
+
+      
    </div>
 
    <div className="col-sm-4 temperature-section">
+        
    <p>{temperature}<sup>°</sup></p>
+          
 </div>
 
   <div className="col-sm-10 forecast-section">
 <h2>Forecast</h2>
   </div>
+
    
     </div>
 </div>
