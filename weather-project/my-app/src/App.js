@@ -11,8 +11,9 @@ let [temperature, setTemperature] = useState("");
   let [description, setDescription] = useState("");
   let [wind, setWind] = useState("");
   let [image, setImage] = useState("");
-  let [date, setDate] = useState("")
-  let[cityName,setCityName]=useState("")
+  let [date, setDate] = useState("");
+  let[cityName,setCityName]=useState("");
+  let [country,setCountry]=useState("");
 
   function handleForm(e){
     e.preventDefault();
@@ -115,6 +116,7 @@ function handleNairobi(response){
   setImage(response.data.weather[0].icon);
   setDate(new Date(response.data.dt*1000));
   Math.round(setTemperature(response.data.main.temp));
+  setCountry(response.data.sys.country);
 }
 
 
@@ -131,33 +133,41 @@ function handleNairobi(response){
 
 
 
-    <div className="col-sm-5">
-   <ul>
-   <li>City: {city}</li>
-            <li>Humidity: {humidity}%</li>
-            <li>Wind Speed: {wind} m/s</li>
-            <li>Description: {description}</li>
-            <li>Date: {setDate}</li>
-          
-        </ul>
-   
-        {image && (<img
+
+
+   <div className="col-sm-4 ms-2 temperature-section  ">
+        <div>
+   <p>{temperature}<sup>°</sup></p>
+   </div>  
+
+
+<div>
+   {image && (<img
                   src={`http://openweathermap.org/img/wn/${image}@2x.png`}
                   alt="Weather icon"
                 />
               )}
+              </div>
+    
+<h1> {city}, <span>{country}</span></h1>
 
-      
-   </div>
 
-   <div className="col-sm-4 temperature-section">
-        
-   <p>{temperature}<sup>°</sup></p>
-          
 </div>
 
   <div className="col-sm-10 forecast-section">
-<h2>Forecast</h2>
+<div className="col-sm-4">
+  <h3>Todays forecast</h3>
+  <hr/>
+<ul>
+   <li>Humidity: {humidity}%</li>
+   <li>Wind Speed: {wind} m/s</li>
+   <li>Description: {description}</li>
+   <li>Date: {setDate}</li>
+ 
+</ul>
+</div>
+
+
   </div>
 
    
