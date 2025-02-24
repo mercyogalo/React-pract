@@ -12,6 +12,7 @@ let [temperature, setTemperature] = useState("");
   let [wind, setWind] = useState("");
   let [image, setImage] = useState("");
   let [date, setDate] = useState("")
+  let[cityName,setCityName]=useState("")
 
   function handleForm(e){
     e.preventDefault();
@@ -27,6 +28,7 @@ function displayTemperature(response){
   setImage(response.data.weather[0].icon);
   setDate(new Date(response.data.dt*1000));
   Math.round(setTemperature(response.data.main.temp));
+  setCityName(response.data.name);
   return  setLoader(true);
 }
 
@@ -69,6 +71,7 @@ function displayTemperature(response){
 
    <div className="col-sm-5">
    <ul>
+   <li>City {cityName}</li>
             <li>Humidity: {humidity}%</li>
             <li>Wind Speed: {wind} m/s</li>
             <li>Description: {description}</li>
@@ -130,6 +133,7 @@ function handleNairobi(response){
 
     <div className="col-sm-5">
    <ul>
+   <li>City: {city}</li>
             <li>Humidity: {humidity}%</li>
             <li>Wind Speed: {wind} m/s</li>
             <li>Description: {description}</li>
