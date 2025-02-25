@@ -11,7 +11,7 @@
   margin:0;
   padding:0;
   width: 100%;
-  height: 600px;
+  height: 800px;
   background-attachment: fixed;
   background-size: cover;
   top: 0;
@@ -69,4 +69,7 @@ text-align: center;
 }
 .form .search-button:hover{
   cursor: pointer;
+}
+.Weatherforecast  .eachSection{
+  text-align: center;
 }

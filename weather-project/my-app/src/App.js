@@ -16,6 +16,8 @@ let [temperature, setTemperature] = useState("");
   let [currentdate, setDate] = useState(null);
   let[cityName,setCityName]=useState("");
   let [country,setCountry]=useState("");
+  let [latitude,setLatitude]=useState("");
+  let [longitude,setLongitude]=useState("");
 
   function handleForm(e){
     e.preventDefault();
@@ -32,6 +34,8 @@ function displayTemperature(response){
   setDate(new Date(response.data.dt*1000));
   Math.round(setTemperature(response.data.main.temp));
   setCityName(response.data.name);
+  setLongitude(response.data.coord.lon);
+  setLatitude(response.data.coord.lat);
   return  setLoader(true);
 }
 
@@ -101,9 +105,9 @@ function displayTemperature(response){
 </div>
 
 
-<div className="col-sm-10 forecast-section">
-<Weatherforecast  city={cityName}/>
-     </div>
+
+<Weatherforecast  city={cityName} latitude={latitude} longitude={longitude}/>
+
 
 
 </div>
