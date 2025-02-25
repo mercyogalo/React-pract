@@ -1,6 +1,8 @@
 import React , {useState} from "react"
 import axios from 'axios';
 import './App.css';
+import FormattedDate from './FormattedDate'
+import Weatherforecast from "./Weatherforecast";
 
 function App() {
 
@@ -11,7 +13,7 @@ let [temperature, setTemperature] = useState("");
   let [description, setDescription] = useState("");
   let [wind, setWind] = useState("");
   let [image, setImage] = useState("");
-  let [date, setDate] = useState("");
+  let [currentdate, setDate] = useState(null);
   let[cityName,setCityName]=useState("");
   let [country,setCountry]=useState("");
 
@@ -68,15 +70,18 @@ function displayTemperature(response){
     <div className="col-sm-12">
     {form}
     </div>
+    
+<div className="col-sm-6">
+<h1>City</h1>
+</div>
 
-
-   <div className="col-sm-5">
+   <div className="col-sm-6">
    <ul>
    <li>City {cityName}</li>
             <li>Humidity: {humidity}%</li>
             <li>Wind Speed: {wind} m/s</li>
             <li>Description: {description}</li>
-            <li>Date: {setDate}</li>
+            <li><FormattedDate current={currentdate}/></li>
           
         </ul>
    
@@ -95,13 +100,17 @@ function displayTemperature(response){
           
 </div>
 
-  <div className="col-sm-10 forecast-section">
-<h2>Forecast</h2>
-  </div>
 
-   
-    </div>
+<div className="col-sm-10 forecast-section">
+<Weatherforecast  city={cityName}/>
+     </div>
+
+
 </div>
+</div>
+
+
+
   );
 
  }
@@ -117,6 +126,7 @@ function handleNairobi(response){
   setDate(new Date(response.data.dt*1000));
   Math.round(setTemperature(response.data.main.temp));
   setCountry(response.data.sys.country);
+  setDate(new Date(response.data.dt*1000));
 }
 
 
@@ -132,10 +142,11 @@ function handleNairobi(response){
     </div>
 
 
+    <div className="col-sm-5">
+<h1>City</h1>
+</div>
 
-
-
-   <div className="col-sm-4 ms-2 temperature-section  ">
+   <div className="col-sm-5 ms-2 temperature-section  ">
         <div>
    <p>{temperature}<sup>°</sup></p>
    </div>  
@@ -162,8 +173,10 @@ function handleNairobi(response){
    <li>Humidity: {humidity}%</li>
    <li>Wind Speed: {wind} m/s</li>
    <li>Description: {description}</li>
-   <li>Date: {setDate}</li>
+   <li></li>
  
+
+
 </ul>
 </div>
 

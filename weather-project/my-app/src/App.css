@@ -1,12 +1,11 @@
 
 :root{
   --secondary-color:#ffffff;
-  --primary-color:#0C121E;
-  --accent-color:#202C3C;
+  --accent-color:#070A13;
 }
 
 .weather-app-section{
-  background-image: url(bg-1.jpeg);
+  background-image: url(bg-3.jpeg);
   background-repeat: no-repeat;
   color:var(--secondary-color);
   margin:0;
@@ -20,9 +19,9 @@
 }
 
 .weather-app-section .temperature-section{
-  background-color: var(--secondary-color);
+  background-color: var(--accent-color);
   opacity: 0.2;
-  color: #0C121E;
+  color: var(--secondary-color);
   border-radius: 10px;
   margin-bottom: 20px;
   margin-left: 10px;
@@ -35,9 +34,9 @@
   font-size: 20px;
  }
 .weather-app-section .forecast-section{
-  background-color: var(--secondary-color);
+  background-color: var(--accent-color);
   opacity: 0.3;
-  color: #0C121E;
+  color: var(--secondary-color);
   border-radius: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -58,7 +57,7 @@ text-align: center;
   padding-bottom: 8px;
 }
 .form .search-button{
-  background-color: var(--primary-color);
+  background-color: var(--accent-color);
   color:var(--secondary-color);
   margin-left: 4px;
   border-radius: 25px;
