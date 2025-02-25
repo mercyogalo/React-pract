@@ -14,7 +14,6 @@ let apiKey=`tba3e25ffd38f7e512a5944489457o05`
 axios.get(apiUrl).then(handleResponse);
 
 
-
     return (
 <div className="col-sm-2">
 <div className="eachSection">
