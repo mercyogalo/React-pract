@@ -131,6 +131,8 @@ function handleNairobi(response){
   Math.round(setTemperature(response.data.main.temp));
   setCountry(response.data.sys.country);
   setDate(new Date(response.data.dt*1000));
+  setLongitude(response.data.coord.lon);
+  setLatitude(response.data.coord.lat);
 }
 
 
@@ -169,25 +171,9 @@ function handleNairobi(response){
 
 </div>
 
-  <div className="col-sm-10 forecast-section">
-<div className="col-sm-4">
-  <h3>Todays forecast</h3>
-  <hr/>
-<ul>
-   <li>Humidity: {humidity}%</li>
-   <li>Wind Speed: {wind} m/s</li>
-   <li>Description: {description}</li>
-   <li></li>
- 
-
-
-</ul>
-</div>
-
-
-  </div>
-
    
+
+<Weatherforecast  city={cityName} latitude={latitude} longitude={longitude}/>
 
 
 

@@ -70,6 +70,27 @@ text-align: center;
 .form .search-button:hover{
   cursor: pointer;
 }
+
 .Weatherforecast  .eachSection{
   text-align: center;
+}
+
+.Weatherforecast  .eachSection:hover{
+  background-color: var(--secondary-color);
+  color: var(--accent-color);
+  opacity: 1;
+  border-radius: 13px;
+}
+
+.Weatherforecast .forecast-section{
+  background-color: var(--accent-color);
+  opacity: 0.3;
+  color: var(--secondary-color);
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 15px;
+  padding-bottom: 15px;
+ 
 }
