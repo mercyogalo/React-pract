@@ -13,12 +13,18 @@ function handleResponse(response){
 }
 
 if (loaded && forecast && forecast.length > 0) {
-    console.log({forecast});
     return (
         <div className="Weatherforecast container">  
          <div className="row  forecast-section">  
 
-<WeatherforecastDay forecast={forecast[0]} />
+{forecast.map(function(dailyForecast,index){
+    return (
+        <div className="col-md-1 eachSection " key={index}>
+        <WeatherforecastDay forecast={dailyForecast} />
+        </div>
+    );
+})}
+   
 
 
 </div>
@@ -33,7 +39,7 @@ if (loaded && forecast && forecast.length > 0) {
 else{
 
     let apiKey=`tba3e25ffd38f7e512a5944489457o05`
-    let apiUrl=`https://api.shecodes.io/weather/v1/forecast?lat=${props.latitude}&lon=${props.longitude}&key=${apiKey}`
+    let apiUrl=`https://api.shecodes.io/weather/v1/forecast?lat=${props.coordinates.lat}&lon=${props.coordinates.lon}&key=${apiKey}`
     axios.get(apiUrl).then(handleResponse);
 
 

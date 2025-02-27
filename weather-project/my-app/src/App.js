@@ -16,17 +16,16 @@ let [temperature, setTemperature] = useState("");
   let [currentdate, setDate] = useState(null);
   let[cityName,setCityName]=useState("");
   let [country,setCountry]=useState("");
-  let [latitude,setLatitude]=useState("");
-  let [longitude,setLongitude]=useState("");
+  let [coordinates, setCoordinates]=useState("");
 
   function handleForm(e){
     e.preventDefault();
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=72bb9dab46b9ec3d65f423c63f27a9b8&units=metric`;
+    //let apiUrl=`https://api.shecodes.io/weather/v1/current?query=${city}&key=72bb9dab46b9ec3d65f423c63f27a9b8&units=metric`
     axios.get(apiUrl).then(displayTemperature);
   }
 
 function displayTemperature(response){
-  console.log(response.data);
   Math.round(setHumidity(response.data.main.humidity));
   Math.round(setWind(response.data.wind.speed));
   setDescription(response.data.weather[0].description);
@@ -34,8 +33,7 @@ function displayTemperature(response){
   setDate(new Date(response.data.dt*1000));
   Math.round(setTemperature(response.data.main.temp));
   setCityName(response.data.name);
-  setLongitude(response.data.coord.lon);
-  setLatitude(response.data.coord.lat);
+  setCoordinates(response.data.coord);
   return  setLoader(true);
 }
 
@@ -106,7 +104,7 @@ function displayTemperature(response){
 
 
 
-<Weatherforecast  city={cityName} latitude={latitude} longitude={longitude}/>
+<Weatherforecast  city={cityName} coordinates={coordinates}/>
 
 
 
@@ -131,8 +129,7 @@ function handleNairobi(response){
   Math.round(setTemperature(response.data.main.temp));
   setCountry(response.data.sys.country);
   setDate(new Date(response.data.dt*1000));
-  setLongitude(response.data.coord.lon);
-  setLatitude(response.data.coord.lat);
+  setCoordinates(response.data.coord);
 }
 
 
@@ -173,7 +170,7 @@ function handleNairobi(response){
 
    
 
-<Weatherforecast  city={cityName} latitude={latitude} longitude={longitude}/>
+<Weatherforecast  city={cityName} coordinates={coordinates}/>
 
 
 

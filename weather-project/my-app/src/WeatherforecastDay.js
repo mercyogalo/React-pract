@@ -32,13 +32,13 @@ export default function WeatherforecastDay(props){
         return day;
     }
 
-
     return (
-        <div className="col-md-1 eachSection ">
+            <div>
         <p>{day()}</p>
         <img src={`${props.forecast.condition.icon_url}`} alt="weather-icon" />
         <br/>
         <span className="me-4">{minTemp()}°</span><span>{maxTemp()}°</span>
-    </div>
+        </div>
+   
     )
 }
