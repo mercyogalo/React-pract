@@ -82,6 +82,11 @@ text-align: center;
   border-radius: 13px;
 }
 
+.Weatherforecast  .eachSection img{
+  display: block;
+  margin: 0 auto;
+}
+
 .Weatherforecast .forecast-section{
   background-color: var(--accent-color);
   opacity: 0.3;

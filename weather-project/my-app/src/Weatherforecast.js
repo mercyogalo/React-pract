@@ -1,7 +1,10 @@
-import React, { useState , useEffect} from "react";
-import css from "./App.css"
-import axios from "axios"
+import React, { useState , useEffect } from "react";
+import css from "./App.css";
+import axios from "axios";
 import WeatherforecastDay from "./WeatherforecastDay";
+
+
+
 
 export default function Weatherforecast(props){
     let [loaded,setLoaded]=useState(false);
@@ -9,7 +12,7 @@ export default function Weatherforecast(props){
     let [prevCoordinates, setPrevCoordinates] = useState(null);
 
 
-
+  
     useEffect(() => {
         if (!props.coordinates) return; // Ensure coordinates are available
 
@@ -30,7 +33,6 @@ export default function Weatherforecast(props){
 
         axios.get(apiUrl)
             .then((response) => {
-                console.log("Forecast API Response:", response.data);
                 if (response.data.daily) {
                     setForecast(response.data.daily);
                     setLoaded(true);
@@ -73,7 +75,9 @@ if (loaded && forecast && forecast.length > 0) {
 }
 else{
 return (
-    <div>Loading forecast...</div>
+    <div className="sweet-loading">
+  loading...
+    </div>
 );
 
 

@@ -21,7 +21,7 @@ let [temperature, setTemperature] = useState("");
   function handleForm(e){
     e.preventDefault();
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=72bb9dab46b9ec3d65f423c63f27a9b8&units=metric`;
-    //let apiUrl=`https://api.shecodes.io/weather/v1/current?query=${city}&key=72bb9dab46b9ec3d65f423c63f27a9b8&units=metric`
+   // let apiUrl=`https://api.shecodes.io/weather/v1/current?query=${city}&key=72bb9dab46b9ec3d65f423c63f27a9b8&units=metric`
     axios.get(apiUrl).then(displayTemperature);
   }
 
@@ -31,9 +31,10 @@ function displayTemperature(response){
   setDescription(response.data.weather[0].description);
   setImage(response.data.weather[0].icon);
   setDate(new Date(response.data.dt*1000));
-  Math.round(setTemperature(response.data.main.temp));
+setTemperature(response.data.main.temp);
   setCityName(response.data.name);
   setCoordinates(response.data.coord);
+  setCountry(response.data.sys.country);
   return  setLoader(true);
 }
 
@@ -65,41 +66,41 @@ function displayTemperature(response){
 
  if (loader) {
   return (
-    <div className="weather-app-section">
-    <div className="row ">
-   
+<div className=" weather-app-section">
+       <div className="row ">
 
-    <div className="col-sm-12">
+       <div className="col-sm-12">
     {form}
     </div>
-    
-<div className="col-sm-6">
-<h1>City</h1>
+
+
+    <div className="col-sm-5 ms-3">
+<h1>{cityName}</h1>
+<p>Description: {description}</p>
+<p>
+<FormattedDate current={currentdate}/>
+</p>
+
+<p>Humidity: {humidity}%</p>
+<p>Wind Speed: {wind} m/s</p>
 </div>
 
-   <div className="col-sm-6">
-   <ul>
-   <li>City {cityName}</li>
-            <li>Humidity: {humidity}%</li>
-            <li>Wind Speed: {wind} m/s</li>
-            <li>Description: {description}</li>
-            <li><FormattedDate current={currentdate}/></li>
-          
-        </ul>
-   
-        {image && (<img
+   <div className="col-sm-5 ms-2 temperature-section  ">
+        <div>
+   <p>{temperature}<sup>°</sup></p>
+   </div>  
+
+
+<div>
+   {image && (<img
                   src={`http://openweathermap.org/img/wn/${image}@2x.png`}
                   alt="Weather icon"
                 />
               )}
+              </div>
+    
+<h1> {cityName}, <span>{country}</span></h1>
 
-      
-   </div>
-
-   <div className="col-sm-4 temperature-section">
-        
-   <p>{temperature}<sup>°</sup></p>
-          
 </div>
 
 
@@ -107,13 +108,12 @@ function displayTemperature(response){
 <Weatherforecast  city={cityName} coordinates={coordinates}/>
 
 
-
 </div>
-</div>
-
-
+     </div>
 
   );
+
+
 
  }
  else{
@@ -146,8 +146,16 @@ function handleNairobi(response){
 
 
     <div className="col-sm-5">
-<h1>City</h1>
+<h1>{cityName}</h1>
+<p>Description: {description}</p>
+<p>
+<FormattedDate current={currentdate}/>
+</p>
+
+<p>Humidity: {humidity}%</p>
+<p>Wind Speed: {wind} m/s</p>
 </div>
+
 
    <div className="col-sm-5 ms-2 temperature-section  ">
         <div>
@@ -163,7 +171,7 @@ function handleNairobi(response){
               )}
               </div>
     
-<h1> {city}, <span>{country}</span></h1>
+<h1> {cityName}, <span>{country}</span></h1>
 
 
 </div>
