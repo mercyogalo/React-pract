@@ -26,12 +26,12 @@ let [temperature, setTemperature] = useState("");
   }
 
 function displayTemperature(response){
-  Math.round(setHumidity(response.data.main.humidity));
-  Math.round(setWind(response.data.wind.speed));
+ setHumidity( Math.round(response.data.main.humidity));
+ setWind( Math.round(response.data.wind.speed));
   setDescription(response.data.weather[0].description);
   setImage(response.data.weather[0].icon);
-  setDate(new Date(response.data.dt*1000));
-setTemperature(response.data.main.temp);
+  setDate(new Date(response.data.dt * 1000)); 
+ setTemperature( Math.round(response.data.main.temp));
   setCityName(response.data.name);
   setCoordinates(response.data.coord);
   setCountry(response.data.sys.country);
@@ -121,14 +121,13 @@ setTemperature(response.data.main.temp);
 
 
 function handleNairobi(response){
-  Math.round(setHumidity(response.data.main.humidity));
-  Math.round(setWind(response.data.wind.speed));
+ setHumidity(Math.round(response.data.main.humidity));
+  setWind(Math.round(response.data.wind.speed));
   setDescription(response.data.weather[0].description);
   setImage(response.data.weather[0].icon);
-  setDate(new Date(response.data.dt*1000));
-  Math.round(setTemperature(response.data.main.temp));
+ setTemperature(Math.round(response.data.main.temp));
   setCountry(response.data.sys.country);
-  setDate(new Date(response.data.dt*1000));
+  setDate(new Date(response.data.dt * 1000)); 
   setCoordinates(response.data.coord);
 }
 
@@ -145,23 +144,24 @@ function handleNairobi(response){
     </div>
 
 
-    <div className="col-sm-5">
-<h1>{cityName}</h1>
-<p>Description: {description}</p>
-<p>
-<FormattedDate current={currentdate}/>
-</p>
+    <div className="col-sm-5 ms-3">
+
+    <div className="temperature">
+   <p>{temperature}<sup>°</sup></p>
+   </div>  
+
+<p className="description"> {description}</p>
+
+
 
 <p>Humidity: {humidity}%</p>
 <p>Wind Speed: {wind} m/s</p>
 </div>
 
 
-   <div className="col-sm-5 ms-2 temperature-section  ">
-        <div>
-   <p>{temperature}<sup>°</sup></p>
-   </div>  
-
+   <div className="col-sm-5 ms-2 temperature-section ">
+    
+   <p className="time">{currentdate ? <FormattedDate current={currentdate} /> : "Loading date..."}</p>
 
 <div>
    {image && (<img
@@ -171,7 +171,7 @@ function handleNairobi(response){
               )}
               </div>
     
-<h1> {cityName}, <span>{country}</span></h1>
+<h1> {cityName ? {cityName} : `Nairobi`}, <span>{country}</span></h1>
 
 
 </div>
