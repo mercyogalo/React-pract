@@ -79,6 +79,8 @@ text-align: center;
 
 .Weatherforecast  .eachSection{
   text-align: center;
+  display: block;
+  margin: 0 auto;
 }
 
 .Weatherforecast  .eachSection:hover{
@@ -88,10 +90,6 @@ text-align: center;
   border-radius: 13px;
 }
 
-.Weatherforecast  .eachSection img{
-  display: block;
-  margin: 0 auto;
-}
 
 .Weatherforecast .forecast-section{
   background-color: var(--accent-color);
@@ -119,4 +117,20 @@ text-align: center;
     font-size: 20px;
     text-transform: capitalize;
   }
+
+  .form .search-button{
+    border-radius: 25px;
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin-top: 4px;
+  }
+
+  
+.Weatherforecast .forecast-section{
+  display: block;
+
+}
+
 }

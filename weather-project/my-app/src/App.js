@@ -21,7 +21,6 @@ let [temperature, setTemperature] = useState("");
   function handleForm(e){
     e.preventDefault();
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=72bb9dab46b9ec3d65f423c63f27a9b8&units=metric`;
-   // let apiUrl=`https://api.shecodes.io/weather/v1/current?query=${city}&key=72bb9dab46b9ec3d65f423c63f27a9b8&units=metric`
     axios.get(apiUrl).then(displayTemperature);
   }
 
@@ -75,21 +74,23 @@ function displayTemperature(response){
 
 
     <div className="col-sm-5 ms-3">
-<h1>{cityName}</h1>
-<p>Description: {description}</p>
-<p>
-<FormattedDate current={currentdate}/>
-</p>
-
-<p>Humidity: {humidity}%</p>
-<p>Wind Speed: {wind} m/s</p>
-</div>
-
-   <div className="col-sm-5 ms-2 temperature-section  ">
-        <div>
+    <div className="temperature">
    <p>{temperature}<sup>°</sup></p>
    </div>  
 
+<p className="description"> {description}</p>
+
+
+
+<p>Humidity: {humidity}%</p>
+<p>   Wind Speed: {wind} m/s</p>
+</div>
+
+
+
+   <div className="col-sm-5 ms-2 temperature-section ">
+    
+   <p className="time"><FormattedDate current={currentdate} /> </p>
 
 <div>
    {image && (<img
@@ -100,6 +101,7 @@ function displayTemperature(response){
               </div>
     
 <h1> {cityName}, <span>{country}</span></h1>
+
 
 </div>
 
@@ -112,10 +114,8 @@ function displayTemperature(response){
      </div>
 
   );
+}
 
-
-
- }
  else{
 
 
@@ -155,7 +155,7 @@ function handleNairobi(response){
 
 
 <p>Humidity: {humidity}%</p>
-<p>Wind Speed: {wind} m/s</p>
+<p>   Wind Speed: {wind} m/s</p>
 </div>
 
 

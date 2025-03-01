@@ -55,12 +55,22 @@ if (loaded && forecast && forecast.length > 0) {
          <div className="row  forecast-section">  
 
 {forecast.map(function(dailyForecast,index){
+ if (index < 5) {
     return (
-        <div className="col-md-1 eachSection " key={index}>
+          <div className="col-md-2 " key={index}>
+            <div className="eachSection">
         <WeatherforecastDay forecast={dailyForecast} />
         </div>
+        </div>
+      
     );
-})}
+
+}
+
+})
+
+
+}
    
 
 
