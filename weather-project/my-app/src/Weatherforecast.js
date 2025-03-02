@@ -1,5 +1,4 @@
 import React, { useState , useEffect } from "react";
-import css from "./App.css";
 import axios from "axios";
 import WeatherforecastDay from "./WeatherforecastDay";
 
@@ -66,6 +65,7 @@ if (loaded && forecast && forecast.length > 0) {
     );
 
 }
+return null;
 
 })
 
